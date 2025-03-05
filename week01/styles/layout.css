@@ -28,6 +28,8 @@ main {
 	border: 1px solid rgb(0 0 0 / .2);
 	padding: 1rem;
 	background-color: #eee;
+    background: coral;
+    grid-column: 2 / 3;
 }
 
 .navigation {
@@ -72,10 +74,10 @@ body {
     grid-column: 1 / 2;
   }
   
-  main {
+ /* main {
     background: coral;
     grid-column: 2 / 3;
-  }
+  }*/
   
   .right-sidebar {
     background: yellow;
