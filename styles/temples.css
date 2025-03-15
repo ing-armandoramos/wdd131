@@ -1,13 +1,25 @@
-/*===========================================
-  MOBILE STYLES
-===========================================*/
+/*MOBILE*/
 
-/* Root variables for consistent styling */
+/*Root variables*/
 :root {
-    --primary-color: #2c3e50;
+    /*--primary-color: #2c3e50;
     --secondary-color: #ecf0f1;
     --accent-color: #e74c3c;
-    --text-color: #34495e;
+    --text-color: #34495e;*/
+
+      /* Color palette - modern blue theme */
+      --primary-color: #1a4b84;
+      /* Dark blue for header background */
+      --secondary-color: #f8f9fa;
+      /* Light gray for text on dark backgrounds */
+      --accent-color: #ffc107;
+      /* Yellow accent for highlights */
+      --text-color: #212529;
+      /* Dark gray for main text */
+      --link-color: #0d6efd;
+      /* Blue for links */
+      --link-hover-color: #0a58ca;
+      /* Darker blue for link hover */
   
     /* Typography */
     --heading-font: 'Merriweather', serif;
@@ -21,9 +33,7 @@
     --spacing-xl: 2rem;
   }
   
-  /*===========================================
-    RESET AND BASE STYLES
-  ===========================================*/
+  /*BASE STYLE*/
   
   * {
     margin: 0;
@@ -44,9 +54,7 @@
     line-height: 1.6;
   }
   
-  /*===========================================
-    HEADER STYLES
-  ===========================================*/
+  /*HEADER*/
   
   header {
     display: flex;
@@ -64,7 +72,7 @@
     font-family: var(--heading-font);
   }
   
-  /* Hamburger Menu Styles */
+  /*Hamburger Menu*/
   .hamburger-menu {
     display: block;
     z-index: 100;
@@ -87,7 +95,7 @@
     content: "x";
   }
   
-  /* Navigation Styles - Mobile First */
+  /* Navigation Mobile*/
   .nav {
     position: absolute;
     top: 100%;
@@ -133,9 +141,7 @@
     color: var(--accent-color);
   }
   
-  /*===========================================
-    MAIN STYLES
-  ===========================================*/
+  /*MAIN*/
   
   main {
     padding: 1rem;
@@ -163,9 +169,7 @@
     text-align: center;
   }
   
-  /*===========================================
-    FOOTER STYLES
-  ===========================================*/
+  /*FOOTER*/
   
   footer {
     padding: 1rem;

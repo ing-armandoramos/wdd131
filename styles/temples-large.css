@@ -1,16 +1,12 @@
-/*===========================================
-  LARGE SCREEN STYLES
-===========================================*/
+/*LARGE*/
 @media screen and (min-width: 768px) {
 
-    /* Hide hamburger menu on larger screens */
+    /* Hide hamburger*/
     .hamburger-menu {
       display: none;
     }
   
-    /*===========================================
-      HEADER STYLES
-    ===========================================*/
+    /*HEADER*/
     header {
       padding: var(--spacing-lg);
       display: flex;
@@ -24,7 +20,7 @@
       font-family: var(--heading-font);
     }
   
-    /* Navigation Styles */
+    /*Navigation*/
     .nav {
       display: block;
       position: static;
@@ -58,9 +54,7 @@
       color: var(--accent-color);
     }
   
-    /*===========================================
-    MAIN STYLES
-    ===========================================*/
+    /*MAIN STYLES*/
   
     main {
       max-width: 1200px;
