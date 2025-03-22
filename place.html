@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>WDD 131 - Visit Culiacan - Jesus Armando Ramos Ontiveros</title>
+		<meta name="description" content="Explore ####">
+		<meta name="author" content="Jesus Armando Ramos Ontiveros">
+		<link rel="stylesheet" href="styles/place.css">
+		<link rel="stylesheet" href="styles/place-large.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+		<script src="scripts/place.js" defer></script>
+	</head>
+	<body>
+		<header><h1>Culiacan</h1></header>
+		<main>
+			<section class="hero">
+				<h2 class="sr-only">Culiacan Skyline</h2>
+				<picture>
+					<source media="(min-width: 1024px)" srcset="images/hero-large.webp">
+					<source media="(min-width: 768px)" srcset="images/hero-medium.webp">
+					<img
+						src="images/hero-small.webp"
+						alt="Beautiful view of Hawaii coastline"
+						class="hero__image"
+						width="500"
+						height="250"
+					>
+				</picture>
+			</section>
+			<section class="data">
+				<h2 class="data__title">Data</h2>
+				<div class="data__container">
+					<div class="data__item">
+						<span class="data__label">Area:</span>
+						<span class="data__value">189 sq km</span>
+					</div>
+					<div class="data__item">
+						<span class="data__label">Population:</span>
+						<span class="data__value">	808, 416</span>
+					</div>
+					<div class="data__item">
+						<span class="data__label">Capital:</span>
+						<span class="data__value">Culiacan Rosales</span>
+					</div>
+					<div class="data__item">
+						<span class="data__label">Languages:</span>
+						<span class="data__value">Spanish</span>
+					</div>
+					<div class="data__item">
+						<span class="data__label">Currency:</span>
+						<span class="data__value">Mexican Peso (MXN)</span>
+					</div>
+					<div class="data__item">
+						<span class="data__label">Time Zone:</span>
+						<span class="data__value">UTC-7</span>
+					</div>
+					<div class="data__item">
+						<span class="data__label">Calling Code:</span>
+						<span class="data__value">+52 667</span>
+					</div>
+					<div class="data__item">
+						<span class="data__label">Internet TLD:</span>
+						<span class="data__value">.gob.mx</span>
+					</div>
+				</div>
+			</section>
+			<section class="weather">
+				<h2 class="weather__title">Weather</h2>
+				<div class="weather__icon-container">
+					<img src="images/weather_day_sandstorm_icon.svg" alt="Partly Cloudy Weather" class="weather__icon">
+				</div>
+				<div class="weather__container">
+					<div class="weather__item">
+						<span class="weather__label">Temperature:</span>
+						<span class="weather__value">27 °C</span>
+					</div>
+					<div class="weather__item">
+						<span class="weather__label">Conditions:</span>
+						<span class="weather__value">Partly Cloudy</span>
+					</div>
+					<div class="weather__item">
+						<span class="weather__label">Wind:</span>
+						<span class="weather__value">15 km/h</span>
+					</div>
+					<div class="weather__item">
+						<span class="weather__label">Wind Chill:</span>
+						<span class="weather__value">26 °C</span>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__content">
+				<p class="footer__copyright">
+					&copy;
+					<span id="currentyear"></span>
+					- Jesus Armando Ramos Ontiveros - Culiacan, Mexico
+				</p>
+				<p id="lastmodified" class="footer__modified"></p>
+			</div>
+		</footer>
+	</body>
+</html>
