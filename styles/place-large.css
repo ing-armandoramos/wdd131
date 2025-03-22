@@ -46,18 +46,18 @@
       z-index: 1;
       background-color: var(--bg-white-90);
       border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-      border: var(--border-strong);
+      /*box-shadow: var(--box-shadow);
+      border: var(--border-strong);*/
       padding: var(--spacing-md);
     }
   
     .data__title {
-      border-bottom: var(--border-medium);
-      color: var(--royal-blue);
+      /*border-bottom: var(--border-medium);
+      color: var(--royal-blue);*/
     }
   
     .data__label {
-      color: var(--royal-blue);
+     /* color: var(--royal-blue);*/
     }
   
     /*Weather Section Bottom*/
@@ -70,20 +70,20 @@
       z-index: 1;
       background-color: var(--bg-white-90);
       border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-      border: var(--border-strong);
+      /*box-shadow: var(--box-shadow);
+      border: var(--border-strong);*/
       padding: var(--spacing-md);
     }
   
     .weather__title {
-      border-bottom: var(--border-medium);
-      color: var(--royal-blue);
+     /* border-bottom: var(--border-medium);
+      color: var(--royal-blue);*/
     }
   
-    .weather__label {
-      color: var(--royal-blue);
-    }
-  
+    /*.weather__label {
+      /*color: var(--royal-blue);
+    }*/
+    
     /* Hide icon in large screens*/
     .weather__icon-container {
       display: none;
