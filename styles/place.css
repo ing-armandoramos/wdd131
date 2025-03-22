@@ -1,17 +1,17 @@
-/*===========================================
-  MOBILE STYLES
-===========================================*/
+/*
+  MOBILE*/
 
 /* Root variables for consistent styling */
 :root {
-    /* Color palette from provided values */
-    --royal-blue: #062b67ff;
-    --cardinal: #d21044ff;
-    --platinum: #e7e4e7ff;
+    /* Color palette in accordance with https://www.flagcolorcodes.com/sinaloa */
+    --light-brown: #CE9458;
+    --maroon: #92292E;
+    --white: white;
   
     /* Typography */
     --heading-font: 'Merriweather', serif;
     --body-font: 'Open Sans', sans-serif;
+    
   
     /* Spacing */
     --spacing-xs: 0.25rem;
@@ -23,9 +23,9 @@
     /* Borders and Shadows */
     --border-radius: 8px;
     --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    --border-light: 1px solid #eee;
-    --border-medium: 2px solid var(--cardinal);
-    --border-strong: 2px solid var(--royal-blue);
+    --border-light: 1px solid #82B0E3;
+    --border-medium: 2px solid var(--maroon);
+    --border-strong: 2px solid var(--light-brown);
   
     /* Background Colors with Alpha */
     --bg-white-90: rgba(255, 255, 255, 0.9);
@@ -40,14 +40,12 @@
     --min-content-height: calc(100vh - 200px);
   
     /* Icon Sizes */
-    --icon-size-small: 1.5rem;
-    --icon-size-medium: 1.8rem;
-    --icon-size-large: 80px;
+    --icon-size-small: 1.8rem;
+    --icon-size-medium: 2.1rem;
+    --icon-size-large: 100px;
   }
   
-  /*===========================================
-    RESET AND BASE STYLES
-  ===========================================*/
+  /*BASE*/
   
   * {
     margin: 0;
@@ -62,8 +60,8 @@
   }
   
   body {
-    font-family: var(--body-font);
-    line-height: 1.6;
+    font-family: "Roboto Flex", sans-serif;;
+    line-height: 2;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -71,7 +69,7 @@
     overflow-x: hidden;
   }
   
-  /* Utility classes */
+  /*Utility*/
   .sr-only {
     position: absolute;
     width: 1px;
@@ -84,27 +82,23 @@
     border: 0;
   }
   
-  /*===========================================
-    HEADER STYLES
-  ===========================================*/
+  /*HEADER*/
   
   header {
-    background-color: var(--cardinal);
+    background-color: var(--maroon);
     color: white;
     padding: var(--spacing-md);
     text-align: center;
-    border-bottom: 5px solid var(--royal-blue);
+    border-bottom: 5px solid var(--light-brown);
   }
   
   header h1 {
     font-family: var(--heading-font);
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 3rem;
   }
   
-  /*===========================================
-    MAIN STYLES
-  ===========================================*/
+  /*MAIN*/
   
   main {
     flex: 1;
@@ -116,7 +110,7 @@
   
   /* Hero Section */
   .hero {
-    margin-bottom: 0;
+    margin-bottom: 1;
     width: 100%;
   }
   
@@ -131,7 +125,7 @@
   
   /* Data Section */
   .data {
-    background-color: white;
+    background-color: #FFF4B1;
     padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg);
     margin-bottom: 0;
     border-bottom: var(--border-light);
@@ -139,9 +133,9 @@
   
   .data__title {
     font-family: var(--heading-font);
-    color: var(--royal-blue);
+    color: black;
     margin-bottom: var(--spacing-md);
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
     padding-bottom: var(--spacing-sm);
   }
@@ -170,16 +164,16 @@
   
   /* Weather Section */
   .weather {
-    background-color: white;
+    background-color: #FFF4B1;
     padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg);
     margin-bottom: 0;
   }
   
   .weather__title {
     font-family: var(--heading-font);
-    color: var(--royal-blue);
+    color: black;
     margin-bottom: var(--spacing-md);
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
     padding-bottom: var(--spacing-sm);
   }
@@ -211,23 +205,21 @@
   
   .weather__label {
     font-weight: 600;
-    color: #333;
+    color: #A2492A;
   }
   
   .weather__value {
     text-align: right;
   }
   
-  /*===========================================
-    FOOTER STYLES
-  ===========================================*/
+  /*FOOTER*/
   
   .footer {
-    background-color: var(--cardinal);
+    background-color: var(--maroon);
     color: white;
     padding: var(--spacing-md);
     text-align: center;
-    border-top: 5px solid var(--royal-blue);
+    border-top: 5px solid var(--light-brown);
     margin-top: auto;
   }
   
@@ -240,5 +232,5 @@
   
   .footer__copyright,
   .footer__modified {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
