@@ -73,6 +73,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    border-radius: 5%;
+    padding: 1rem;
+    border-color: #92292E;
   }
 
   /*Temple Card Figure*/
