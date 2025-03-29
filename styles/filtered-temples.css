@@ -1,6 +1,4 @@
-/*===========================================
-  MOBILE STYLES
-===========================================*/
+/*MOBILE*/
 
 /* Root variables for consistent styling */
 :root {
@@ -10,8 +8,10 @@
   --text-color: #34495e;
 
   /* Typography */
-  --heading-font: 'Merriweather', serif;
+  --heading-font: "Roboto Flex", serif;
   --body-font: 'Open Sans', sans-serif;
+  
+
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -21,9 +21,7 @@
   --spacing-xl: 2rem;
 }
 
-/*===========================================
-  RESET AND BASE STYLES
-===========================================*/
+/*BASE STYLES*/
 
 * {
   margin: 0;
@@ -43,9 +41,7 @@ body {
   line-height: 1.6;
 }
 
-/*===========================================
-  HEADER STYLES
-===========================================*/
+/*HEADER*/
 
 header {
   display: flex;
@@ -63,7 +59,7 @@ header p {
   font-family: var(--heading-font);
 }
 
-/* Hamburger Menu Styles */
+/*Hamburger*/
 .hamburger-menu {
   display: block;
   z-index: 100;
@@ -86,7 +82,7 @@ header p {
   content: "x";
 }
 
-/* Navigation Styles - Mobile First */
+/*Navigation*/
 .nav {
   position: absolute;
   top: 100%;
@@ -130,23 +126,25 @@ header p {
 a:hover,
 a:focus {
   color: var(--accent-color);
+  text-decoration: underline;
 }
 
-/*===========================================
-  MAIN STYLES
-===========================================*/
+/*MAIN*/
 
 main {
   padding: 2rem 1rem;
 }
 
 h2 {
-  font-family: 'Merriweather', serif;
+  font-family: "Roboto Flex", serif;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-top: 2rem;
   margin-bottom: 2rem;
   text-align: center;
 }
 
-/* Temple Cards Container */
+/*Temple Card Container*/
 #temples {
   display: grid;
   grid-template-columns: 1fr;
@@ -155,7 +153,7 @@ h2 {
   margin: 0 auto;
 }
 
-/* Temple Card */
+/*Temple Card*/
 .temple-card {
   background-color: #ffffff;
   border-radius: 8px;
@@ -166,7 +164,7 @@ h2 {
 }
 
 .temple-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 /* Temple Card Figure */
@@ -189,7 +187,7 @@ figure img {
 /* Temple Card Figcaption */
 figcaption {
   padding: 1.5rem;
-  flex-grow: 1;
+  flex-grow: 2;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -197,7 +195,9 @@ figcaption {
 
 /* Temple Card Title */
 .temple-card__title {
-  font-family: 'Merriweather', serif;
+  font-family: "Roboto Flex", serif;
+  font-weight: bold;
+  text-decoration: underline;
   font-size: 1.5rem;
   margin: 0 0 0.5rem;
   color: #002d5b;
@@ -208,14 +208,12 @@ figcaption {
 .temple-card__dedication,
 .temple-card__area {
   margin: 0.5rem 0;
-  color: #666;
+  color: #363636;
   font-size: 1rem;
   line-height: 1.4;
 }
 
-/*===========================================
-  FOOTER STYLES
-===========================================*/
+/*FOOTER*/
 
 footer {
   padding: 1rem;

@@ -1,8 +1,144 @@
-/*******************************************************************************
- * Temple Data
- * An array of temple objects containing information about various LDS temples
- * Each object includes: name, location, dedication date, area, and image URL
- ******************************************************************************/
+
+/*Temple Filtering*/
+function filterTemples(criteria) {
+	// Heading update
+	const heading = document.querySelector('main h2')
+
+	let filteredTemples = temples
+
+	switch (criteria) {
+		case 'old':
+			// Built before 1900
+			filteredTemples = temples.filter((temple) => {
+				const year = new Date(temple.dedicated.replace(/,/g, '')).getFullYear()
+				return year < 1900
+			})
+			heading.textContent = 'Old Temples'
+			break
+
+		case 'new':
+			// Built after 2000
+			filteredTemples = temples.filter((temple) => {
+				const year = new Date(temple.dedicated.replace(/,/g, '')).getFullYear()
+				return year > 2000
+			})
+			heading.textContent = 'New Temples'
+			break
+
+		case 'large':
+			// larger than 90,000 sq ft
+			filteredTemples = temples.filter((temple) => temple.area > 90000)
+			heading.textContent = 'Large Temples'
+			break
+
+		case 'small':
+			// smaller than 10,000 sq ft
+			filteredTemples = temples.filter((temple) => temple.area < 10000)
+			heading.textContent = 'Small Temples'
+			break
+
+		default:
+			// Show all temples when selecting 'home'
+			heading.textContent = 'All Temples'
+	}
+
+	displayTemples(filteredTemples)
+}
+
+/* @param {Array} templeList - Array of temples*/
+function displayTemples(templeList = temples) {
+	// Add the temple cards
+	const main = document.querySelector('main')
+
+	// Remove previous container
+	const existingContainer = document.getElementById('temples')
+	if (existingContainer) {
+		existingContainer.remove()
+	}
+
+	// Temple cards container
+	const templesContainer = document.createElement('div')
+	templesContainer.id = 'temples'
+
+	// Loop through temples
+	templeList.forEach((temple) => {
+		// Figure element
+		const figure = document.createElement('figure')
+		figure.className = 'temple-card'
+
+		// Format dates
+		const dedicationDate = new Date(temple.dedicated.replace(/,/g, ''))
+		const formattedDate = dedicationDate.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		})
+
+		// Card content
+		figure.innerHTML = `
+            <img
+                src="${temple.imageUrl}"
+                alt="The ${temple.templeName} Temple"
+                class="temple-card__image"
+                loading="lazy"
+            >
+            <figcaption class="temple-card__caption">
+                <h2 class="temple-card__title">${temple.templeName}</h2>
+                <p class="temple-card__location">${temple.location}</p>
+                <p class="temple-card__dedication">Dedicated: ${formattedDate}</p>
+                <p class="temple-card__area">Area: ${temple.area.toLocaleString()} sq ft</p>
+            </figcaption>
+        `
+
+		// Container to the figure
+		templesContainer.appendChild(figure)
+	})
+
+	// Container in the main element
+	main.appendChild(templesContainer)
+}
+
+/*Event Listeners and Initialization*/
+document.addEventListener('DOMContentLoaded', function () {
+	// Hamburger and navigation
+	const menuButton = document.getElementById('menu')
+	const nav = document.querySelector('.nav')
+
+	// Event hamburger button is clicked
+	menuButton.addEventListener('click', function () {
+		nav.classList.toggle('nav--open')
+		menuButton.classList.toggle('menu--open')
+
+		// Toggle aria-expanded attribute for accessibility
+		const isExpanded = nav.classList.contains('nav--open')
+		menuButton.setAttribute('aria-expanded', isExpanded)
+	})
+
+	// Listeners in navigation
+	const navLinks = document.querySelectorAll('.nav__link')
+	navLinks.forEach((link) => {
+		link.addEventListener('click', (e) => {
+			e.preventDefault()
+			const criteria = link.textContent.toLowerCase()
+			filterTemples(criteria)
+
+			// Mobile menu removal
+			nav.classList.remove('nav--open')
+			menuButton.classList.remove('menu--open')
+		})
+	})
+
+	// Show all temples in regular
+	displayTemples()
+})
+
+/*Footer*/
+// Copyright
+document.getElementById('currentyear').textContent = new Date().getFullYear()
+// Last modified
+document.getElementById('lastmodified').textContent = `Last modified: ${document.lastModified}`
+
+/*Temple Data*/
 const temples = [
 	{
 		templeName: 'Aba Nigeria',
@@ -61,6 +197,27 @@ const temples = [
 		imageUrl: 'images/rome-italy-temple-2642-main.webp'
 	},
 	{
+		templeName: 'Atlanta Georgia',
+		location: 'Sandy Springs, Georgia, United States',
+		dedicated: '1983, June, 1',
+		area: 34500,
+		imageUrl: 'images/atlanta_temple_lds.webp'
+	},
+	{
+		templeName: 'Bogota Colombia',
+		location: 'Bogota, Distrito Capital, Colombia',
+		dedicated: '1999, April, 18',
+		area: 53500,
+		imageUrl: 'images/bogota_colombia_temple_lds.webp'
+	},
+	{
+		templeName: 'Buenos Aires Argentina',
+		location: 'Ciudad Evita, Buenos Aires, Argentina',
+		dedicated: '1986, January, 19',
+		area: 30659,
+		imageUrl: 'images/buenos_aires_argentina_temple.webp'
+	},
+	{
 		templeName: 'Laie Hawaii',
 		location: 'Laie, Hawaii, United States',
 		dedicated: '1919, November, 27-30',
@@ -68,173 +225,52 @@ const temples = [
 		imageUrl: 'images/laie-hawaii-temple-7370-main.webp'
 	},
 	{
+		templeName: 'Guadalajara Mexico',
+		location: 'Zapopan, Jalisco, Mexico',
+		dedicated: '2001, April, 29',
+		area: 10700,
+		imageUrl: 'images/guadalajara_temple_lds.webp'
+	},
+	{
+		templeName: 'Hermosillo Sonora Mexico',
+		location: 'Hermosillo, Sonora, Mexico',
+		dedicated: '2000, February, 27',
+		area: 10769,
+		imageUrl: 'images/hermosillo_sonora_mexico_temple_lds.webp'
+	},
+	{
+		templeName: 'Los Angeles California',
+		location: 'Los Angeles, California, United States',
+		dedicated: '1956, March, 14',
+		area: 190614,
+		imageUrl: 'images/los_angeles_temple_lds.webp'
+	},
+	{
 		templeName: 'Bern Switzerland',
 		location: 'Bern, Switzerland',
 		dedicated: '1955, September, 11-15',
 		area: 35546,
 		imageUrl: 'images/bern-switzerland-temple-54641-main.webp'
+	},
+	{
+		templeName: 'Panama City Panama',
+		location: 'Ancon, Provincia de Panamá, Panama',
+		dedicated: '2008, July, 26',
+		area: 18943,
+		imageUrl: 'images/panama_city_temple_lds.webp'
+	},
+	{
+		templeName: 'Raleight North Carolina',
+		location: 'Apex, North Carolina, United States',
+		dedicated: '1999, December, 19',
+		area: 12864,
+		imageUrl: 'images/raleigh_north_carolina_temple.webp'
+	},
+	{
+		templeName: 'Redlands California',
+		location: 'Redlands, California, United States',
+		dedicated: '2003, September, 14',
+		area: 17300,
+		imageUrl: 'images/redlands_temple_lds.webp'
 	}
 ]
-
-/*******************************************************************************
- * Temple Filtering Function
- * Filters temples based on different criteria:
- * - old: temples built before 1900
- * - new: temples built after 2000
- * - large: temples larger than 90,000 sq ft
- * - small: temples smaller than 10,000 sq ft
- * - default: shows all temples
- ******************************************************************************/
-function filterTemples(criteria) {
-	// Get the heading element to update
-	const heading = document.querySelector('main h2')
-
-	let filteredTemples = temples
-
-	switch (criteria) {
-		case 'old':
-			// Filter temples built before 1900
-			filteredTemples = temples.filter((temple) => {
-				const year = new Date(temple.dedicated.replace(/,/g, '')).getFullYear()
-				return year < 1900
-			})
-			heading.textContent = 'Old Temples'
-			break
-
-		case 'new':
-			// Filter temples built after 2000
-			filteredTemples = temples.filter((temple) => {
-				const year = new Date(temple.dedicated.replace(/,/g, '')).getFullYear()
-				return year > 2000
-			})
-			heading.textContent = 'New Temples'
-			break
-
-		case 'large':
-			// Filter temples larger than 90,000 square feet
-			filteredTemples = temples.filter((temple) => temple.area > 90000)
-			heading.textContent = 'Large Temples'
-			break
-
-		case 'small':
-			// Filter temples smaller than 10,000 square feet
-			filteredTemples = temples.filter((temple) => temple.area < 10000)
-			heading.textContent = 'Small Temples'
-			break
-
-		default:
-			// Show all temples for 'home' or any other case
-			heading.textContent = 'All Temples'
-	}
-
-	displayTemples(filteredTemples)
-}
-
-/*******************************************************************************
- * Temple Display Function
- * Creates and displays temple cards in the DOM
- * - Creates a container for all temple cards
- * - Generates individual cards with temple information
- * - Handles image loading and date formatting
- * @param {Array} templeList - Array of temple objects to display
- ******************************************************************************/
-function displayTemples(templeList = temples) {
-	// Get the main element where we'll add the temple cards
-	const main = document.querySelector('main')
-
-	// Remove existing temple container if it exists
-	const existingContainer = document.getElementById('temples')
-	if (existingContainer) {
-		existingContainer.remove()
-	}
-
-	// Create a container for the temple cards
-	const templesContainer = document.createElement('div')
-	templesContainer.id = 'temples'
-
-	// Loop through each temple and create a card
-	templeList.forEach((temple) => {
-		// Create figure element
-		const figure = document.createElement('figure')
-		figure.className = 'temple-card'
-
-		// Format the dedication date
-		const dedicationDate = new Date(temple.dedicated.replace(/,/g, ''))
-		const formattedDate = dedicationDate.toLocaleDateString('en-US', {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
-		})
-
-		// Create the card content
-		figure.innerHTML = `
-            <img
-                src="${temple.imageUrl}"
-                alt="The ${temple.templeName} Temple"
-                class="temple-card__image"
-                loading="lazy"
-            >
-            <figcaption class="temple-card__caption">
-                <h2 class="temple-card__title">${temple.templeName}</h2>
-                <p class="temple-card__location">${temple.location}</p>
-                <p class="temple-card__dedication">Dedicated: ${formattedDate}</p>
-                <p class="temple-card__area">Area: ${temple.area.toLocaleString()} sq ft</p>
-            </figcaption>
-        `
-
-		// Add the figure to the container
-		templesContainer.appendChild(figure)
-	})
-
-	// Add the container to the main element
-	main.appendChild(templesContainer)
-}
-
-/*******************************************************************************
- * Event Listeners and Initialization
- * Sets up all necessary event handlers when the DOM is loaded:
- * - Mobile menu toggle functionality
- * - Navigation link click handlers
- * - Initial temple display
- ******************************************************************************/
-document.addEventListener('DOMContentLoaded', function () {
-	// Get the hamburger button and navigation elements
-	const menuButton = document.getElementById('menu')
-	const nav = document.querySelector('.nav')
-
-	// Toggle the navigation menu when the hamburger button is clicked
-	menuButton.addEventListener('click', function () {
-		nav.classList.toggle('nav--open')
-		menuButton.classList.toggle('menu--open')
-
-		// Toggle aria-expanded attribute for accessibility
-		const isExpanded = nav.classList.contains('nav--open')
-		menuButton.setAttribute('aria-expanded', isExpanded)
-	})
-
-	// Add click event listeners to navigation links
-	const navLinks = document.querySelectorAll('.nav__link')
-	navLinks.forEach((link) => {
-		link.addEventListener('click', (e) => {
-			e.preventDefault()
-			const criteria = link.textContent.toLowerCase()
-			filterTemples(criteria)
-
-			// Close the mobile menu if it's open
-			nav.classList.remove('nav--open')
-			menuButton.classList.remove('menu--open')
-		})
-	})
-
-	// Initial display of all temples
-	displayTemples()
-})
-
-/*******************************************************************************
- * Footer Information
- * Updates the footer with current year and last modified date
- ******************************************************************************/
-// Get the current year for the copyright
-document.getElementById('currentyear').textContent = new Date().getFullYear()
-// Last modified date
-document.getElementById('lastmodified').textContent = `Last modified: ${document.lastModified}`
