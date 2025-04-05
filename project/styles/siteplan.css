@@ -1,23 +1,20 @@
-/*===========================================
-  CSS VARIABLES
-===========================================*/
+/* ROOT VARIABLES */
 :root {
-  /* Colors */
-  --color-accent-gradient-1: #FFC593;
-  --color-accent-gradient-2: #BC7198;
-  --color-accent-gradient-3: #5A77FF;
-  /* Darker accent blue with better contrast */
-  --color-accent-accessible: #3850d0;
-  --color-black: #000000;
-  --color-light-grey: #DFDFDF;
-  /* Darker grey for better text contrast */
-  --color-dark-grey: #474747;
-  /* Even darker grey for maximum contrast */
-  --color-very-dark-grey: #333333;
-  --color-white: #FFFFFF;
+  --color-accent-gradient-1: #E6B08C;
+  --color-accent-gradient-2: #9A5A73;
+  --color-accent-gradient-3: #445ECD;
+  --color-accent-accessible: #2643A6;
 
-  /* Typography */
-  --font-primary: 'DM Sans', sans-serif;
+  --color-black: #000000;
+  --color-light-grey: #E0E0E0;
+  --color-dark-grey: #4A4A4A;
+  --color-very-dark-grey: #1A1A1A;
+  --color-white: #FFFFFF;
+  --color-border: #888888;
+
+  --font-primary: 'Roboto Flex', sans-serif;
+  --font-secondary: 'Domine', serif;
+
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-md: 1.25rem;
@@ -25,61 +22,44 @@
   --font-size-xl: 2rem;
   --font-size-xxl: 2.5rem;
 
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 0.75rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-xxl: 3rem;
-  --spacing-xxxl: 4rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+  --spacing-xxl: 2rem;
+  --spacing-xxxl: 2.5rem;
 
-  /* Borders */
   --border-radius: 8px;
   --border-width: 1px;
-  --border-color: var(--color-dark-grey);
+  --border-color: var(--color-border);
 
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.1);
 
-  /* Transitions */
   --transition-default: 0.3s ease;
 }
 
-/*===========================================
-  RESET & BASE STYLES
-===========================================*/
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* BEM naming convention used throughout */
-
 body {
   font-family: var(--font-primary);
   line-height: 1.6;
-  color: var(--color-black);
+  color: var(--color-very-dark-grey);
+  background-color: var(--color-white);
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--spacing-xl);
-  background-color: var(--color-white);
 }
 
-/*===========================================
-  TYPOGRAPHY
-===========================================*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--spacing-md);
@@ -92,7 +72,7 @@ h1 {
 
 h2 {
   font-size: var(--font-size-xl);
-  margin-top: var(--spacing-xxl);
+  margin-top: var(--spacing-xl);
 }
 
 h3 {
@@ -103,82 +83,6 @@ p {
   margin-bottom: var(--spacing-md);
 }
 
-/*===========================================
-  SECTION LAYOUTS
-===========================================*/
-section {
-  margin-bottom: var(--spacing-xxxl);
-}
-
-/*===========================================
-  COLOR SCHEMA SECTION
-===========================================*/
-.colors {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-xl);
-  margin-top: var(--spacing-xl);
-}
-
-.color-sample {
-  padding: var(--spacing-xl);
-  border-radius: var(--border-radius);
-  color: var(--color-black);
-}
-
-.color-sample p {
-  font-size: var(--font-size-sm);
-  font-weight: bold;
-}
-
-.main-accent {
-  background: linear-gradient(45deg,
-      var(--color-accent-gradient-1),
-      var(--color-accent-gradient-2),
-      var(--color-accent-gradient-3));
-  color: var(--color-white);
-}
-
-.pure-black {
-  background-color: var(--color-black);
-  color: var(--color-white);
-}
-
-.light-grey {
-  background-color: var(--color-light-grey);
-  /* Ensure text has good contrast against light grey background */
-  color: var(--color-very-dark-grey);
-  border: var(--border-width) solid var(--color-dark-grey);
-}
-
-.pure-white {
-  background-color: var(--color-white);
-  border: var(--border-width) solid var(--color-dark-grey);
-  color: var(--color-very-dark-grey);
-}
-
-/*===========================================
-  TYPOGRAPHY SECTION
-===========================================*/
-.font-samples {
-  margin-top: var(--spacing-xl);
-}
-
-.font-sample {
-  margin-bottom: var(--spacing-xl);
-  padding: var(--spacing-xl);
-  border: var(--border-width) solid var(--border-color);
-  border-radius: var(--border-radius);
-}
-
-.font-usage {
-  font-weight: 700;
-  margin-top: var(--spacing-md);
-}
-
-/*===========================================
-  LIST STYLES
-===========================================*/
 ul {
   list-style-position: inside;
   margin-bottom: var(--spacing-md);
@@ -188,9 +92,73 @@ li {
   margin-bottom: var(--spacing-xs);
 }
 
-/*===========================================
-  WIREFRAMES SECTION
-===========================================*/
+/* SECTION */
+section {
+  margin-bottom: var(--spacing-xxl);
+}
+
+/* COLORS */
+.colors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.color-sample {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  text-align: center;
+  font-weight: 600;
+  border: var(--border-width) solid var(--color-border);
+  transition: background-color var(--transition-default), color var(--transition-default);
+}
+
+.color-sample p {
+  font-size: var(--font-size-sm);
+}
+
+.main-accent {
+  background: linear-gradient(135deg, var(--color-accent-gradient-1), var(--color-accent-gradient-2), var(--color-accent-gradient-3));
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.pure-black {
+  background-color: var(--color-black);
+  color: #ffffff;
+}
+
+.light-grey {
+  background-color: var(--color-light-grey);
+  color: #1A1A1A;
+  border: var(--border-width) solid var(--color-dark-grey);
+}
+
+.pure-white {
+  background-color: var(--color-white);
+  color: #000000;
+  border: var(--border-width) solid var(--color-dark-grey);
+}
+
+/* FONT SAMPLES */
+.font-samples {
+  margin-top: var(--spacing-xl);
+}
+
+.font-sample {
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.font-usage {
+  font-weight: 700;
+  margin-top: var(--spacing-md);
+}
+
+/* WIREFRAMES */
 .wireframe-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -200,20 +168,15 @@ li {
 
 .mobile-wireframe,
 .desktop-wireframe {
-  padding: var(--spacing-xl);
+  padding: var(--spacing-lg);
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
   text-align: left;
   box-shadow: var(--shadow-md);
 }
 
-.mobile-wireframe:hover,
-.desktop-wireframe:hover {
-  box-shadow: var(--shadow-md);
-}
-
 .wireframe__figure {
-  margin: 0 0 var(--spacing-lg) 0;
+  margin: 0 0 var(--spacing-md) 0;
 }
 
 .wireframe__image {
@@ -225,16 +188,11 @@ li {
   box-shadow: var(--shadow-sm);
 }
 
-.wireframe__image:hover {
-  transform: none;
-}
-
 .wireframe__caption {
   font-size: 0.9rem;
   line-height: 1.5;
   margin-top: var(--spacing-sm);
-  /* Ensure caption text has good contrast */
-  color: var(--color-black);
+  color: var(--color-very-dark-grey);
 }
 
 .wireframe__details {
@@ -251,20 +209,13 @@ li {
   margin-bottom: var(--spacing-xs);
 }
 
-/*===========================================
-  LINK STYLES
-===========================================*/
 .wireframe__link {
-  /* Use the darker, more accessible blue for better contrast */
   color: var(--color-accent-accessible);
   text-decoration: underline;
   font-weight: 700;
-  display: inline-block;
 }
 
-/*===========================================
-  FOOTER STYLES
-===========================================*/
+/* FOOTER */
 footer {
   margin-top: var(--spacing-xxxl);
   padding: var(--spacing-md);
@@ -273,7 +224,6 @@ footer {
   color: var(--color-white);
 }
 
-/* Ensure footer text has sufficient contrast */
 .footer__copyright,
 .footer__modified {
   color: var(--color-white);
