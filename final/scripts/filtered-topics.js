@@ -10,7 +10,7 @@ function filterTopics(criteria) {
 		case 'old':
 			// Built before 1900
 			filteredTopics = topics.filter((topic) => {
-				const year = new Date(topic.dedicated.replace(/,/g, '')).getFullYear()
+				const year = new Date(topic.Published.replace(/,/g, '')).getFullYear()
 				return year < 1900
 			})
 			heading.textContent = 'Old Topics'
@@ -19,7 +19,7 @@ function filterTopics(criteria) {
 		case 'new':
 			// Built after 2000
 			filteredTopics = topics.filter((topic) => {
-				const year = new Date(topic.dedicated.replace(/,/g, '')).getFullYear()
+				const year = new Date(topic.Published.replace(/,/g, '')).getFullYear()
 				return year > 2000
 			})
 			heading.textContent = 'New Topics'
@@ -27,13 +27,13 @@ function filterTopics(criteria) {
 
 		case 'large':
 			// larger than 90,000 sq ft
-			filteredTopics = topics.filter((topic) => topic.area > 90000)
+			filteredTopics = topics.filter((topic) => topic.timetoLearn > 30)
 			heading.textContent = 'Large Topics'
 			break
 
 		case 'small':
 			// smaller than 10,000 sq ft
-			filteredTopics = topics.filter((topic) => topic.area < 10000)
+			filteredTopics = topics.filter((topic) => topic.timetoLearn < 5)
 			heading.textContent = 'Small Topics'
 			break
 
@@ -67,7 +67,7 @@ function displayTopics(topicList = topics) {
 		figure.className = 'topic-card'
 
 		// Format dates
-		const dedicationDate = new Date(topic.dedicated.replace(/,/g, ''))
+		const dedicationDate = new Date(topic.Published.replace(/,/g, ''))
 		const formattedDate = dedicationDate.toLocaleDateString('en-US', {
 			year: 'numeric',
 			month: 'long',
@@ -84,9 +84,9 @@ function displayTopics(topicList = topics) {
             >
             <figcaption class="topic-card__caption">
                 <h2 class="topic-card__title">${topic.topicName}</h2>
-                <p class="topic-card__location">${topic.location}</p>
-                <p class="topic-card__dedication">Dedicated: ${formattedDate}</p>
-                <p class="topic-card__area">Area: ${topic.area.toLocaleString()} sq ft</p>
+                <p class="topic-card__topicAuthor">${topic.topicAuthor}</p>
+                <p class="topic-card__published">Published: ${formattedDate}</p>
+                <p class="topic-card__time">timetoLearn: ${topic.timetoLearn.toLocaleString()} minutes</p>
             </figcaption>
         `
 
@@ -141,136 +141,151 @@ document.getElementById('lastmodified').textContent = `Last modified: ${document
 /*Topic Data*/
 const topics = [
 	{
-		topicName: 'Aba Nigeria',
-		location: 'Aba, Nigeria',
-		dedicated: '2005, August, 7',
-		area: 11500,
-		imageUrl: 'images/aba-nigeria-temple-5087.webp'
+	  topicName: "Pomodoro Technique",
+	  topicAuthor: "Francesco Cirillo",
+	  Published: "1987-01-01",
+	  timetoLearn: 25,
+	  imageUrl: "https://via.placeholder.com/150?text=Pomodoro"
 	},
 	{
-		topicName: 'Manti Utah',
-		location: 'Manti, Utah, United States',
-		dedicated: '1888, May, 21',
-		area: 74792,
-		imageUrl: 'images/manti-utah-temple-40551-main.webp'
+	  topicName: "Active Recall",
+	  topicAuthor: "Dr. Barbara Oakley",
+	  Published: "2017-05-16",
+	  timetoLearn: 15,
+	  imageUrl: "https://via.placeholder.com/150?text=Active+Recall"
 	},
 	{
-		topicName: 'Payson Utah',
-		location: 'Payson, Utah, United States',
-		dedicated: '2015, June, 7',
-		area: 96630,
-		imageUrl: 'images/payson-utah-temple-38451-main.webp'
+	  topicName: "Spaced Repetition",
+	  topicAuthor: "Sebastian Leitner",
+	  Published: "1972-03-10",
+	  timetoLearn: 20,
+	  imageUrl: "https://via.placeholder.com/150?text=Spaced+Repetition"
 	},
 	{
-		topicName: 'Yigo Guam',
-		location: 'Yigo, Guam',
-		dedicated: '2020, May, 2',
-		area: 6861,
-		imageUrl: 'images/yigo-guam-temple-26495-main.webp'
+	  topicName: "Feynman Technique",
+	  topicAuthor: "Richard Feynman",
+	  Published: "1960-01-01",
+	  timetoLearn: 30,
+	  imageUrl: "https://via.placeholder.com/150?text=Feynman+Technique"
 	},
 	{
-		topicName: 'Washington D.C.',
-		location: 'Kensington, Maryland, United States',
-		dedicated: '1974, November, 19',
-		area: 156558,
-		imageUrl: 'images/washington-d.c.-temple-14992-main.webp'
+	  topicName: "SMART Goals",
+	  topicAuthor: "George T. Doran",
+	  Published: "1981-11-01",
+	  timetoLearn: 20,
+	  imageUrl: "https://via.placeholder.com/150?text=SMART+Goals"
 	},
 	{
-		topicName: 'Lima Perú',
-		location: 'Lima, Perú',
-		dedicated: '1986, January, 10',
-		area: 9600,
-		imageUrl: 'images/lima_peru_temple_lds.webp'
+	  topicName: "Time Blocking",
+	  topicAuthor: "Cal Newport",
+	  Published: "2016-01-05",
+	  timetoLearn: 25,
+	  imageUrl: "https://via.placeholder.com/150?text=Time+Blocking"
 	},
 	{
-		topicName: 'Mexico City Mexico',
-		location: 'Mexico City, Mexico',
-		dedicated: '1983, December, 2',
-		area: 116642,
-		imageUrl: 'images/mexico_city_temple_lds.webp'
+	  topicName: "Eisenhower Matrix",
+	  topicAuthor: "Dwight D. Eisenhower",
+	  Published: "1954-06-01",
+	  timetoLearn: 15,
+	  imageUrl: "https://via.placeholder.com/150?text=Eisenhower+Matrix"
 	},
 	{
-		topicName: 'Rome Italy',
-		location: 'Rome, Italy',
-		dedicated: '2010, October, 23',
-		area: 41010,
-		imageUrl: 'images/rome-italy-temple-2642-main.webp'
+	  topicName: "Mind Mapping",
+	  topicAuthor: "Tony Buzan",
+	  Published: "1974-03-01",
+	  timetoLearn: 20,
+	  imageUrl: "https://via.placeholder.com/150?text=Mind+Mapping"
 	},
 	{
-		topicName: 'Atlanta Georgia',
-		location: 'Sandy Springs, Georgia, United States',
-		dedicated: '1983, June, 1',
-		area: 34500,
-		imageUrl: 'images/atlanta_temple_lds.webp'
+	  topicName: "Cornell Note Taking",
+	  topicAuthor: "Walter Pauk",
+	  Published: "1949-01-01",
+	  timetoLearn: 30,
+	  imageUrl: "https://via.placeholder.com/150?text=Cornell+Notes"
 	},
 	{
-		topicName: 'Bogota Colombia',
-		location: 'Bogota, Distrito Capital, Colombia',
-		dedicated: '1999, April, 18',
-		area: 53500,
-		imageUrl: 'images/bogota_colombia_temple_lds.webp'
+	  topicName: "SQ3R Reading Method",
+	  topicAuthor: "Francis P. Robinson",
+	  Published: "1946-01-01",
+	  timetoLearn: 35,
+	  imageUrl: "https://via.placeholder.com/150?text=SQ3R+Method"
 	},
 	{
-		topicName: 'Buenos Aires Argentina',
-		location: 'Ciudad Evita, Buenos Aires, Argentina',
-		dedicated: '1986, January, 19',
-		area: 30659,
-		imageUrl: 'images/buenos_aires_argentina_temple.webp'
+	  topicName: "The Pareto Principle (80/20 Rule)",
+	  topicAuthor: "Vilfredo Pareto",
+	  Published: "1896-01-01",
+	  timetoLearn: 15,
+	  imageUrl: "https://via.placeholder.com/150?text=Pareto+Principle"
 	},
 	{
-		topicName: 'Laie Hawaii',
-		location: 'Laie, Hawaii, United States',
-		dedicated: '1919, November, 27-30',
-		area: 42100,
-		imageUrl: 'images/laie-hawaii-temple-7370-main.webp'
+	  topicName: "Flow State",
+	  topicAuthor: "Mihaly Csikszentmihalyi",
+	  Published: "1990-01-01",
+	  timetoLearn: 40,
+	  imageUrl: "https://via.placeholder.com/150?text=Flow+State"
 	},
 	{
-		topicName: 'Guadalajara Mexico',
-		location: 'Zapopan, Jalisco, Mexico',
-		dedicated: '2001, April, 29',
-		area: 10700,
-		imageUrl: 'images/guadalajara_temple_lds.webp'
+	  topicName: "Dual Coding",
+	  topicAuthor: "Allan Paivio",
+	  Published: "1971-01-01",
+	  timetoLearn: 20,
+	  imageUrl: "https://via.placeholder.com/150?text=Dual+Coding"
 	},
 	{
-		topicName: 'Hermosillo Sonora Mexico',
-		location: 'Hermosillo, Sonora, Mexico',
-		dedicated: '2000, February, 27',
-		area: 10769,
-		imageUrl: 'images/hermosillo_sonora_mexico_temple_lds.webp'
+	  topicName: "Interleaving Practice",
+	  topicAuthor: "Doug Rohrer",
+	  Published: "2014-08-01",
+	  timetoLearn: 25,
+	  imageUrl: "https://via.placeholder.com/150?text=Interleaving"
 	},
 	{
-		topicName: 'Los Angeles California',
-		location: 'Los Angeles, California, United States',
-		dedicated: '1956, March, 14',
-		area: 190614,
-		imageUrl: 'images/los_angeles_temple_lds.webp'
+	  topicName: "Metacognition",
+	  topicAuthor: "John Flavell",
+	  Published: "1976-01-01",
+	  timetoLearn: 30,
+	  imageUrl: "https://via.placeholder.com/150?text=Metacognition"
 	},
 	{
-		topicName: 'Bern Switzerland',
-		location: 'Bern, Switzerland',
-		dedicated: '1955, September, 11-15',
-		area: 35546,
-		imageUrl: 'images/bern-switzerland-temple-54641-main.webp'
+	  topicName: "Growth Mindset",
+	  topicAuthor: "Carol Dweck",
+	  Published: "2006-02-28",
+	  timetoLearn: 30,
+	  imageUrl: "https://via.placeholder.com/150?text=Growth+Mindset"
 	},
 	{
-		topicName: 'Panama City Panama',
-		location: 'Ancon, Provincia de Panamá, Panama',
-		dedicated: '2008, July, 26',
-		area: 18943,
-		imageUrl: 'images/panama_city_temple_lds.webp'
+	  topicName: "Deep Work",
+	  topicAuthor: "Cal Newport",
+	  Published: "2016-01-05",
+	  timetoLearn: 40,
+	  imageUrl: "https://via.placeholder.com/150?text=Deep+Work"
 	},
 	{
-		topicName: 'Raleight North Carolina',
-		location: 'Apex, North Carolina, United States',
-		dedicated: '1999, December, 19',
-		area: 12864,
-		imageUrl: 'images/raleigh_north_carolina_temple.webp'
+	  topicName: "Self-Regulated Learning",
+	  topicAuthor: "Barry Zimmerman",
+	  Published: "1989-06-01",
+	  timetoLearn: 30,
+	  imageUrl: "https://via.placeholder.com/150?text=Self-Regulation"
 	},
 	{
-		topicName: 'Redlands California',
-		location: 'Redlands, California, United States',
-		dedicated: '2003, September, 14',
-		area: 17300,
-		imageUrl: 'images/redlands_temple_lds.webp'
+	  topicName: "Goal Setting Theory",
+	  topicAuthor: "Edwin Locke",
+	  Published: "1968-05-01",
+	  timetoLearn: 25,
+	  imageUrl: "https://via.placeholder.com/150?text=Goal+Setting"
+	},
+	{
+	  topicName: "Deliberate Practice",
+	  topicAuthor: "Anders Ericsson",
+	  Published: "1993-07-01",
+	  timetoLearn: 45,
+	  imageUrl: "https://via.placeholder.com/150?text=Deliberate+Practice"
+	},
+	{
+	  topicName: "Habit Stacking",
+	  topicAuthor: "James Clear",
+	  Published: "2018-10-16",
+	  timetoLearn: 20,
+	  imageUrl: "https://via.placeholder.com/150?text=Habit+Stacking"
 	}
-]
+  ];
+  
