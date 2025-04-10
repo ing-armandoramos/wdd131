@@ -27,7 +27,7 @@ function filterTopics(criteria) {
 			break
 
 		default:
-			// Show all topics when selecting 'home'
+			// Show all topics when selecting 'Topics'
 			heading.textContent = 'All Topics'
 	}
 
