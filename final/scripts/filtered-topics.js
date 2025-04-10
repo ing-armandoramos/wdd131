@@ -7,33 +7,22 @@ function filterTopics(criteria) {
 	let filteredTopics = topics
 
 	switch (criteria) {
-		case 'old':
-			// Built before 1900
-			filteredTopics = topics.filter((topic) => {
-				const year = new Date(topic.Published.replace(/,/g, '')).getFullYear()
-				return year < 1900
-			})
-			heading.textContent = 'Old Topics'
-			break
-
-		case 'new':
-			// Built after 2000
-			filteredTopics = topics.filter((topic) => {
-				const year = new Date(topic.Published.replace(/,/g, '')).getFullYear()
-				return year > 2000
-			})
-			heading.textContent = 'New Topics'
-			break
-
-		case 'large':
-			// larger than 90,000 sq ft
-			filteredTopics = topics.filter((topic) => topic.timetoLearn > 30)
+		
+		case 'slow':
+			// Takes more than 30 minutes to learn
+			filteredTopics = topics.filter((topic) => topic.Learning_Time > 30)
 			heading.textContent = 'Large Topics'
 			break
+		
+		case 'medium':
+			// Takes between 16 to 29 minutes
+			filteredTopics = topics.filter((topic) => topic.Learning_Time >= 16 && topic.Learning_Time <= 29)
+			heading.textContent = 'Medium Topics'
+			break
 
-		case 'small':
-			// smaller than 10,000 sq ft
-			filteredTopics = topics.filter((topic) => topic.timetoLearn < 5)
+		case 'fast':
+			// Takes 15 minutes or less to learn
+			filteredTopics = topics.filter((topic) => topic.Learning_Time <= 15)
 			heading.textContent = 'Small Topics'
 			break
 
@@ -44,6 +33,7 @@ function filterTopics(criteria) {
 
 	displayTopics(filteredTopics)
 }
+
 
 /* @param {Array} topicList - Array of topics*/
 function displayTopics(topicList = topics) {
@@ -86,7 +76,7 @@ function displayTopics(topicList = topics) {
                 <h2 class="topic-card__title">${topic.topicName}</h2>
                 <p class="topic-card__topicAuthor">${topic.topicAuthor}</p>
                 <p class="topic-card__published">Published: ${formattedDate}</p>
-                <p class="topic-card__time">timetoLearn: ${topic.timetoLearn.toLocaleString()} minutes</p>
+                <p class="topic-card__time">Learning_Time: ${topic.Learning_Time.toLocaleString()} minutes</p>
             </figcaption>
         `
 
@@ -144,148 +134,148 @@ const topics = [
 	  topicName: "Pomodoro Technique",
 	  topicAuthor: "Francesco Cirillo",
 	  Published: "1987-01-01",
-	  timetoLearn: 25,
-	  imageUrl: "https://via.placeholder.com/150?text=Pomodoro"
+	  Learning_Time: 25,
+	  imageUrl: "images/pomodoro.webp"
 	},
 	{
 	  topicName: "Active Recall",
 	  topicAuthor: "Dr. Barbara Oakley",
 	  Published: "2017-05-16",
-	  timetoLearn: 15,
-	  imageUrl: "https://via.placeholder.com/150?text=Active+Recall"
+	  Learning_Time: 15,
+	  imageUrl: "images/active_recall.webp"
 	},
 	{
 	  topicName: "Spaced Repetition",
 	  topicAuthor: "Sebastian Leitner",
 	  Published: "1972-03-10",
-	  timetoLearn: 20,
-	  imageUrl: "https://via.placeholder.com/150?text=Spaced+Repetition"
+	  Learning_Time: 20,
+	  imageUrl: "images/spaced_repetition.webp"
 	},
 	{
 	  topicName: "Feynman Technique",
 	  topicAuthor: "Richard Feynman",
 	  Published: "1960-01-01",
-	  timetoLearn: 30,
-	  imageUrl: "https://via.placeholder.com/150?text=Feynman+Technique"
+	  Learning_Time: 30,
+	  imageUrl: "images/feynman_technique.webp"
 	},
 	{
 	  topicName: "SMART Goals",
 	  topicAuthor: "George T. Doran",
 	  Published: "1981-11-01",
-	  timetoLearn: 20,
-	  imageUrl: "https://via.placeholder.com/150?text=SMART+Goals"
+	  Learning_Time: 20,
+	  imageUrl: "images/smart.webp"
 	},
 	{
 	  topicName: "Time Blocking",
 	  topicAuthor: "Cal Newport",
 	  Published: "2016-01-05",
-	  timetoLearn: 25,
-	  imageUrl: "https://via.placeholder.com/150?text=Time+Blocking"
+	  Learning_Time: 25,
+	  imageUrl: "images/timeblocking.webp"
 	},
 	{
 	  topicName: "Eisenhower Matrix",
 	  topicAuthor: "Dwight D. Eisenhower",
 	  Published: "1954-06-01",
-	  timetoLearn: 15,
-	  imageUrl: "https://via.placeholder.com/150?text=Eisenhower+Matrix"
+	  Learning_Time: 15,
+	  imageUrl: "images/eisenhower_matrix.webp"
 	},
 	{
 	  topicName: "Mind Mapping",
 	  topicAuthor: "Tony Buzan",
 	  Published: "1974-03-01",
-	  timetoLearn: 20,
-	  imageUrl: "https://via.placeholder.com/150?text=Mind+Mapping"
+	  Learning_Time: 20,
+	  imageUrl: "images/mind_mapping.webp"
 	},
 	{
 	  topicName: "Cornell Note Taking",
 	  topicAuthor: "Walter Pauk",
 	  Published: "1949-01-01",
-	  timetoLearn: 30,
-	  imageUrl: "https://via.placeholder.com/150?text=Cornell+Notes"
+	  Learning_Time: 30,
+	  imageUrl: "images/note_taking.webp"
 	},
 	{
 	  topicName: "SQ3R Reading Method",
 	  topicAuthor: "Francis P. Robinson",
 	  Published: "1946-01-01",
-	  timetoLearn: 35,
-	  imageUrl: "https://via.placeholder.com/150?text=SQ3R+Method"
+	  Learning_Time: 35,
+	  imageUrl: "images/sq3r.webp"
 	},
 	{
 	  topicName: "The Pareto Principle (80/20 Rule)",
 	  topicAuthor: "Vilfredo Pareto",
 	  Published: "1896-01-01",
-	  timetoLearn: 15,
-	  imageUrl: "https://via.placeholder.com/150?text=Pareto+Principle"
+	  Learning_Time: 15,
+	  imageUrl: "images/pareto_principle.webp"
 	},
 	{
 	  topicName: "Flow State",
 	  topicAuthor: "Mihaly Csikszentmihalyi",
 	  Published: "1990-01-01",
-	  timetoLearn: 40,
-	  imageUrl: "https://via.placeholder.com/150?text=Flow+State"
+	  Learning_Time: 40,
+	  imageUrl: "images/flow_state.webp"
 	},
 	{
 	  topicName: "Dual Coding",
 	  topicAuthor: "Allan Paivio",
 	  Published: "1971-01-01",
-	  timetoLearn: 20,
-	  imageUrl: "https://via.placeholder.com/150?text=Dual+Coding"
+	  Learning_Time: 20,
+	  imageUrl: "images/dual_coding.webp"
 	},
 	{
 	  topicName: "Interleaving Practice",
 	  topicAuthor: "Doug Rohrer",
 	  Published: "2014-08-01",
-	  timetoLearn: 25,
-	  imageUrl: "https://via.placeholder.com/150?text=Interleaving"
+	  Learning_Time: 25,
+	  imageUrl: "images/interleaving_practice.webp"
 	},
 	{
 	  topicName: "Metacognition",
 	  topicAuthor: "John Flavell",
 	  Published: "1976-01-01",
-	  timetoLearn: 30,
-	  imageUrl: "https://via.placeholder.com/150?text=Metacognition"
+	  Learning_Time: 30,
+	  imageUrl: "images/metacognition_cycle.webp"
 	},
 	{
 	  topicName: "Growth Mindset",
 	  topicAuthor: "Carol Dweck",
 	  Published: "2006-02-28",
-	  timetoLearn: 30,
-	  imageUrl: "https://via.placeholder.com/150?text=Growth+Mindset"
+	  Learning_Time: 30,
+	  imageUrl: "images/growth_mindset.webp"
 	},
 	{
 	  topicName: "Deep Work",
 	  topicAuthor: "Cal Newport",
 	  Published: "2016-01-05",
-	  timetoLearn: 40,
-	  imageUrl: "https://via.placeholder.com/150?text=Deep+Work"
+	  Learning_Time: 40,
+	  imageUrl: "images/deep_work.webp"
 	},
 	{
 	  topicName: "Self-Regulated Learning",
 	  topicAuthor: "Barry Zimmerman",
 	  Published: "1989-06-01",
-	  timetoLearn: 30,
-	  imageUrl: "https://via.placeholder.com/150?text=Self-Regulation"
+	  Learning_Time: 30,
+	  imageUrl: "images/self_regulated.webp"
 	},
 	{
 	  topicName: "Goal Setting Theory",
 	  topicAuthor: "Edwin Locke",
 	  Published: "1968-05-01",
-	  timetoLearn: 25,
-	  imageUrl: "https://via.placeholder.com/150?text=Goal+Setting"
+	  Learning_Time: 25,
+	  imageUrl: "images/goal_setting_theory.webp"
 	},
 	{
 	  topicName: "Deliberate Practice",
 	  topicAuthor: "Anders Ericsson",
 	  Published: "1993-07-01",
-	  timetoLearn: 45,
-	  imageUrl: "https://via.placeholder.com/150?text=Deliberate+Practice"
+	  Learning_Time: 45,
+	  imageUrl: "images/deliberate_practice.webp"
 	},
 	{
 	  topicName: "Habit Stacking",
 	  topicAuthor: "James Clear",
 	  Published: "2018-10-16",
-	  timetoLearn: 20,
-	  imageUrl: "https://via.placeholder.com/150?text=Habit+Stacking"
+	  Learning_Time: 20,
+	  imageUrl: "images/habit_stacking.webp"
 	}
   ];
   
