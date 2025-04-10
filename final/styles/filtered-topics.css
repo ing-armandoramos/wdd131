@@ -144,8 +144,8 @@ h2 {
   text-align: center;
 }
 
-/*Temple Card Container*/
-#temples {
+/*Topic Card Container*/
+#topics {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
@@ -156,8 +156,8 @@ h2 {
   border-color: #92292E;
 }
 
-/*Temple Card*/
-.temple-card {
+/*Topic Card*/
+.topic-card {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -169,11 +169,11 @@ h2 {
   border-color: #92292E;
 }
 
-.temple-card:hover {
+.topic-card:hover {
   transform: translateY(-10px);
 }
 
-/* Temple Card Figure */
+/* Topic Card Figure */
 figure {
   margin: 0;
   padding: 0;
@@ -182,7 +182,7 @@ figure {
   flex-direction: column;
 }
 
-/* Temple Card Image */
+/* Topic Card Image */
 figure img {
   width: 100%;
   height: 200px;
@@ -193,7 +193,7 @@ figure img {
   border-color: #92292E;
 }
 
-/* Temple Card Figcaption */
+/* Topic Card Figcaption */
 figcaption {
   padding: 1.5rem;
   flex-grow: 2;
@@ -205,8 +205,8 @@ figcaption {
   border-color: #92292E;
 }
 
-/* Temple Card Title */
-.temple-card__title {
+/* Topic Card Title */
+.topic-card__title {
   font-family: "Roboto Flex", serif;
   font-weight: bold;
   text-decoration: underline;
@@ -215,10 +215,10 @@ figcaption {
   color: #002d5b;
 }
 
-/* Temple Card Text Elements */
-.temple-card__location,
-.temple-card__dedication,
-.temple-card__area {
+/* Topic Card Text Elements */
+.topic-card__location,
+.topic-card__dedication,
+.topic-card__area {
   margin: 0.5rem 0;
   color: #363636;
   font-size: 1rem;

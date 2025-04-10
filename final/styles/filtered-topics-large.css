@@ -68,8 +68,8 @@
     margin-bottom: 2rem;
   }
 
-  /*Temple Cards Grid*/
-  #temples {
+  /*Topic Cards Grid*/
+  #topics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
@@ -78,7 +78,7 @@
     border-color: #92292E;
   }
 
-  /*Temple Card Figure*/
+  /*Topic Card Figure*/
   figure {
     display: flex;
     flex-direction: column;
