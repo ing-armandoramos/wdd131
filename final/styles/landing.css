@@ -32,7 +32,8 @@
     color: var(--secondary-color);
   }
   
-  header p {
+  header p,
+  header h1 {
     font-size: 1.5rem;
     font-weight: bold;
     font-family: var(--heading-font);
@@ -62,22 +63,19 @@
   
   /* Navigation */
   .nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #f8f8f8;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    z-index: 90;
     display: none;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    z-index: 99;
+    transition: max-height 0.3s ease;
   }
   
-  .nav.nav--open {
-    max-height: 300px;
-    display: block;
+  .nav--open {
+    display: flex;
   }
   
   .nav__list {
@@ -155,10 +153,12 @@
   /* Large Screens */
   @media screen and (min-width: 768px) {
     .nav {
-      display: block;
+      display: flex !important;
       position: static;
       background-color: transparent;
+      flex-direction: row;
       max-height: none;
+      width: auto;
     }
   
     .nav__list {

@@ -104,19 +104,23 @@ document.addEventListener('DOMContentLoaded', function () {
 		menuButton.setAttribute('aria-expanded', isExpanded)
 	})
 
-	// Listeners in navigation
-	const navLinks = document.querySelectorAll('.nav__link')
+	const navLinks = document.querySelectorAll('.nav__link');
 	navLinks.forEach((link) => {
 		link.addEventListener('click', (e) => {
-			e.preventDefault()
-			const criteria = link.textContent.toLowerCase()
-			filterTopics(criteria)
+			const criteria = link.textContent.toLowerCase();
+
+			if (criteria === 'home') {
+				// Let default behavior happen (no preventDefault)
+			} else {
+				e.preventDefault();
+				filterTopics(criteria);
+			}
 
 			// Mobile menu removal
-			nav.classList.remove('nav--open')
-			menuButton.classList.remove('menu--open')
-		})
-	})
+			nav.classList.remove('nav--open');
+			menuButton.classList.remove('menu--open');
+	});
+});
 
 	// Show all topics in regular
 	displayTopics()

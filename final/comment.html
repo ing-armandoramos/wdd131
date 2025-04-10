@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>WDD 131 - Product Review Form - Jesus Armando Ramos Ontiveros</title>
+		<meta name="description" content="WDD 131 - Website that displays a form that allows the user to review a product from a company.">
+		<meta name="author" content="Jesus Armando Ramos Ontiveros">
+		<link rel="stylesheet" href="styles/form.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+		<script src="scripts/comment.js" defer></script>
+	</head>
+	<body>
+		<header><h1>Review Form</h1></header>
+		<main>
+			<section class="form-section">
+				<h2>Product review form</h2>
+				<form method="get" action="thankyou.html" class="review-form">
+					<p class="form-note">
+						<span class="required-indicator">*</span>
+						indicates required fields
+					</p>
+						<fieldset>
+						<label for="product">
+							Product Name:
+							<span class="required-indicator">*</span>
+						</label>
+						<select id="product" name="product" required>
+							<option value="" disabled selected>Select a Product ...</option>
+						</select>
+					</fieldset>
+					<fieldset>
+						<label>
+							Overall Rating:
+							<span class="required-indicator">*</span>
+						</label>
+						<div class="rating">
+							<input type="radio" id="star5" name="rating" value="5">
+							<label for="star5">☆</label>
+							<input type="radio" id="star4" name="rating" value="4">
+							<label for="star4">☆</label>
+							<input type="radio" id="star3" name="rating" value="3">
+							<label for="star3">☆</label>
+							<input type="radio" id="star2" name="rating" value="2">
+							<label for="star2">☆</label>
+							<input type="radio" id="star1" name="rating" value="1" required>
+							<label for="star1">☆</label>
+						</div>
+						<small class="rating-help-text">Please select a rating (required)</small>
+					</fieldset>
+					<fieldset>
+						<label for="installation-date">
+							Date of Installation:
+							<span class="required-indicator">*</span>
+						</label>
+						<input type="date" id="installation-date" name="installation-date" required>
+					</fieldset>
+					<fieldset>
+						<p>Which features did you find useful in the product?</p>
+						<p>(Check all that apply)</p>
+						<div class="features-group">
+							<div class="feature">
+								<input type="checkbox" id="feature-durability" name="features" value="durability">
+								<label for="feature-durability">Durability</label>
+							</div>
+							<div class="feature">
+								<input type="checkbox" id="feature-ease-of-use" name="features" value="ease-of-use">
+								<label for="feature-ease-of-use">Ease of Use</label>
+							</div>
+							<div class="feature">
+								<input type="checkbox" id="feature-performance" name="features" value="performance">
+								<label for="feature-performance">Performance</label>
+							</div>
+							<div class="feature">
+								<input type="checkbox" id="feature-design" name="features" value="design">
+								<label for="feature-design">Design</label>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<label for="review">Your Comments:</label>
+						<textarea
+							id="review"
+							name="review"
+							rows="5"
+							placeholder="Share your experience..."
+						></textarea>
+					</fieldset>
+					<fieldset>
+						<label for="user-name">Your Name (optional):</label>
+						<input type="text" id="user-name" name="user-name">
+					</fieldset>
+					<input type="submit" value="Comment" class="submit-button">
+				</form>
+			</section>
+		</main>
+		<footer>
+			<p>
+				&copy;
+				<span id="current-year"></span>
+				-- Jesus Armando Ramos Ontiveros - WDD 131 --
+			</p>
+			<p class="last-modified">
+				Last Modified:
+				<span id="last-modified"></span>
+			</p>
+		</footer>
+	</body>
+</html>
