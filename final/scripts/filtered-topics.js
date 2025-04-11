@@ -65,21 +65,23 @@ function displayTopics(topicList = topics) {
 			day: 'numeric'
 		})
 
-		// Card content
+		// Card content with link
 		figure.innerHTML = `
-            <img
-                src="${topic.imageUrl}"
-                alt="The ${topic.topicName} Topic"
-                class="topic-card__image"
-                loading="lazy"
-            >
-            <figcaption class="topic-card__caption">
-                <h2 class="topic-card__title">${topic.topicName}</h2>
-                <p class="topic-card__topicAuthor">${topic.topicAuthor}</p>
-                <p class="topic-card__published">Published: ${formattedDate}</p>
-                <p class="topic-card__time">Learning_Time: ${topic.Learning_Time.toLocaleString()} minutes</p>
-            </figcaption>
-        `
+			<a href="placeholder.html" class="topic-card__link">
+				<img
+					src="${topic.imageUrl}"
+					alt="The ${topic.topicName} Topic"
+					class="topic-card__image"
+					loading="lazy"
+				>
+				<figcaption class="topic-card__caption">
+					<h2 class="topic-card__title">${topic.topicName}</h2>
+					<p class="topic-card__topicAuthor">${topic.topicAuthor}</p>
+					<p class="topic-card__published">Published: ${formattedDate}</p>
+					<p class="topic-card__time">Learning_Time: ${topic.Learning_Time.toLocaleString()} minutes</p>
+				</figcaption>
+			</a>
+		`
 
 		// Container to the figure
 		topicsContainer.appendChild(figure)
