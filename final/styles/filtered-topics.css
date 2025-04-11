@@ -1,17 +1,12 @@
-/*MOBILE*/
-
-/* Root variables for consistent styling */
 :root {
-  --primary-color: #2c3e50;
-  --secondary-color: #ecf0f1;
-  --accent-color: #92292E;
-  --text-color: #34495e;
+  --primary-color: #006341;         /* Mexican Green */
+  --secondary-color: #FAFAFA;       /* Light background */
+  --accent-color: #F7B801;          /* Golden yellow */
+  --text-color: #003049;            /* Deep blue */
 
   /* Typography */
   --heading-font: "Roboto Flex", serif;
   --body-font: 'Open Sans', sans-serif;
-  
-
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -35,7 +30,7 @@ body {
 }
 
 body {
-  background-color: #f5f7fa;
+  background-color: var(--secondary-color);
   font-family: var(--body-font);
   color: var(--text-color);
   line-height: 1.6;
@@ -51,6 +46,7 @@ header {
   background-color: var(--primary-color);
   position: relative;
   color: var(--secondary-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 header p {
@@ -74,10 +70,6 @@ header p {
   color: var(--secondary-color);
 }
 
-#menu::before {
-  content: "≡";
-}
-
 #menu.menu--open::before {
   content: "x";
 }
@@ -88,7 +80,7 @@ header p {
   top: 100%;
   left: 0;
   right: 0;
-  background-color: #f8f8f8;
+  background-color: var(--accent-color);
   width: 100%;
   max-height: 0;
   overflow: hidden;
@@ -107,7 +99,6 @@ header p {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-top: 1px solid #ddd;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,8 +116,9 @@ header p {
 
 a:hover,
 a:focus {
-  color: var(--accent-color);
+  color: var(--text-color);
   text-decoration: underline;
+  background-color: var(--secondary-color);
 }
 
 /*MAIN*/
@@ -153,20 +145,17 @@ h2 {
   margin: 0 auto;
   border-radius: 5%;
   padding: 1rem;
-  border-color: #92292E;
 }
 
 /*Topic Card*/
 .topic-card {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   transition: transform 0.3s ease;
   margin: 0;
-  border-radius: 5%;
   padding: 1rem;
-  border-color: #92292E;
 }
 
 .topic-card:hover {
@@ -190,7 +179,7 @@ figure img {
   transition: transform 0.3s ease;
   border-radius: 5%;
   padding: 1rem;
-  border-color: #92292E;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Topic Card Figcaption */
@@ -200,9 +189,7 @@ figcaption {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  border-radius: 5%;
   padding: 1rem;
-  border-color: #92292E;
 }
 
 /* Topic Card Title */
@@ -212,7 +199,7 @@ figcaption {
   text-decoration: underline;
   font-size: 1.5rem;
   margin: 0 0 0.5rem;
-  color: #002d5b;
+  color: var(--primary-color);
 }
 
 /* Topic Card Text Elements */
@@ -220,7 +207,7 @@ figcaption {
 .topic-card__dedication,
 .topic-card__area {
   margin: 0.5rem 0;
-  color: #363636;
+  color: var(--text-color);
   font-size: 1rem;
   line-height: 1.4;
 }
@@ -232,4 +219,5 @@ footer {
   text-align: center;
   background-color: var(--primary-color);
   color: var(--secondary-color);
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
 }

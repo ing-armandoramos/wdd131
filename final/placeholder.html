@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Topic Details</title>
+  <link rel="stylesheet" href="styles/topic.css" />
+</head>
+<body>
+  <header>
+    <h1>Topic Details</h1>
+    <a href="index.html">← Back to Topics</a>
+  </header>
+  <main>
+    <p>This is a placeholder page for when a user clicks on a topic card.</p>
+    <p>You can later enhance this page with dynamic loading using query parameters or JavaScript.</p>
+  </main>
+  <footer>
+    <p>&copy; <span id="currentyear"></span></p>
+    <p id="lastmodified"></p>
+  </footer>
+  <script>
+    document.getElementById('currentyear').textContent = new Date().getFullYear();
+    document.getElementById('lastmodified').textContent = `Last modified: ${document.lastModified}`;
+  </script>
+</body>
+</html>

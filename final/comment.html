@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>WDD 131 - Product Review Form - Jesus Armando Ramos Ontiveros</title>
-		<meta name="description" content="WDD 131 - Website that displays a form that allows the user to review a product from a company.">
+		<title>WDD 131 - Technique Review Form - Jesus Armando Ramos Ontiveros</title>
+		<meta name="description" content="WDD 131 - Website that displays a form that allows the user to review a technique used in the website.">
 		<meta name="author" content="Jesus Armando Ramos Ontiveros">
 		<link rel="stylesheet" href="styles/form.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,19 +16,19 @@
 		<header><h1>Review Form</h1></header>
 		<main>
 			<section class="form-section">
-				<h2>Product review form</h2>
+				<h2>Technique review form</h2>
 				<form method="get" action="thankyou.html" class="review-form">
 					<p class="form-note">
 						<span class="required-indicator">*</span>
 						indicates required fields
 					</p>
 						<fieldset>
-						<label for="product">
-							Product Name:
+						<label for="technique">
+							Technique Name:
 							<span class="required-indicator">*</span>
 						</label>
-						<select id="product" name="product" required>
-							<option value="" disabled selected>Select a Product ...</option>
+						<select id="technique" name="technique" required>
+							<option value="" disabled selected>Select a Technique ...</option>
 						</select>
 					</fieldset>
 					<fieldset>
@@ -52,30 +52,30 @@
 					</fieldset>
 					<fieldset>
 						<label for="installation-date">
-							Date of Installation:
+							Date of Study:
 							<span class="required-indicator">*</span>
 						</label>
-						<input type="date" id="installation-date" name="installation-date" required>
+						<input type="date" id="study-date" name="study-date" required>
 					</fieldset>
 					<fieldset>
-						<p>Which features did you find useful in the product?</p>
+						<p>Which features did you find useful in the Technique?</p>
 						<p>(Check all that apply)</p>
 						<div class="features-group">
 							<div class="feature">
-								<input type="checkbox" id="feature-durability" name="features" value="durability">
-								<label for="feature-durability">Durability</label>
+								<input type="checkbox" id="time-to-learn" name="features" value="time-to-learn">
+								<label for="time-to-learn">Fast to Learn</label>
 							</div>
 							<div class="feature">
-								<input type="checkbox" id="feature-ease-of-use" name="features" value="ease-of-use">
-								<label for="feature-ease-of-use">Ease of Use</label>
+								<input type="checkbox" id="ease-of-learning" name="features" value="ease-of-learn">
+								<label for="ease-of-learning">Easy to Learn</label>
 							</div>
 							<div class="feature">
-								<input type="checkbox" id="feature-performance" name="features" value="performance">
-								<label for="feature-performance">Performance</label>
+								<input type="checkbox" id="applicability" name="features" value="applicability">
+								<label for="feature-performance">Applicability</label>
 							</div>
 							<div class="feature">
-								<input type="checkbox" id="feature-design" name="features" value="design">
-								<label for="feature-design">Design</label>
+								<input type="checkbox" id="teachability" name="features" value="teachability">
+								<label for="feature-design">Teachable</label>
 							</div>
 						</div>
 					</fieldset>

@@ -37,6 +37,7 @@ function filterTopics(criteria) {
 
 /* @param {Array} topicList - Array of topics*/
 function displayTopics(topicList = topics) {
+	
 	// Add the topic cards
 	const main = document.querySelector('main')
 
@@ -105,20 +106,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 
 	const navLinks = document.querySelectorAll('.nav__link');
-	navLinks.forEach((link) => {
-		link.addEventListener('click', (e) => {
-			const criteria = link.textContent.toLowerCase();
+navLinks.forEach((link) => {
+	link.addEventListener('click', (e) => {
+		const criteria = link.textContent.toLowerCase();
 
-			if (criteria === 'home') {
-				// Let default behavior happen (no preventDefault)
-			} else {
-				e.preventDefault();
-				filterTopics(criteria);
-			}
+		// Only filter topics if the link is one of the filters
+		if (['all', 'fast', 'medium', 'slow'].includes(criteria)) {
+			e.preventDefault();
+			filterTopics(criteria);
 
-			// Mobile menu removal
+			// Collapse mobile nav
 			nav.classList.remove('nav--open');
 			menuButton.classList.remove('menu--open');
+		}
 	});
 });
 
